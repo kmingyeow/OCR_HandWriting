@@ -19,7 +19,6 @@ model = keras.models.load_model("OCR_Resnet_NewestModel_80.h5")
 print("model is loaded")
 
 app = Flask(__name__)
-
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('index.html')
@@ -101,5 +100,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run()
