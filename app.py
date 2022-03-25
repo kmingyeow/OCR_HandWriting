@@ -20,10 +20,6 @@ print("model is loaded")
 
 app = Flask(__name__)
 
-STATICS_FOLDER = 'statics'
-# Path to the folder where we'll store the upload before prediction
-UPLOAD_FOLDER = STATICS_FOLDER + '/uploads'
-
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('index.html')
@@ -33,7 +29,7 @@ def predict():
     if request.method == 'POST':
         file = request.files['image']
         filename = file.filename
-        file_path = os.path.join(UPLOAD_FOLDER, filename)
+        file_path = os.path.join('statics', filename)
         file.save(file_path)
         test_image = tf.keras.preprocessing.image.load_img(file_path)
         src = cv2.imread(file_path)
