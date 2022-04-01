@@ -52,3 +52,4 @@ zipp==3.7.0
 tensorflow-cpu
 imutils==0.5.4
 opencv-python-headless==4.5.5.64
+pillow==8.0.1
