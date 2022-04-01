@@ -38,7 +38,7 @@ def predict():
         edged = cv2.Canny(blurred, 30, 150)
         cnts = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
         cnts = imutils.grab_contours(cnts)
-        cnts = sorted(cnts, key=lambda ctr: cv2.boundingRect(ctr)[0] + cv2.boundingRect(ctr)[1] * image.shape[2] )
+        cnts = sorted(cnts, key=lambda ctr: cv2.boundingRect(ctr)[0] + cv2.boundingRect(ctr)[1] * src.shape[2] )
         chars = []
         for c in cnts:
             # compute the bounding box of the contour
